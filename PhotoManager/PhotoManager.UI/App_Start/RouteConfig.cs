@@ -33,7 +33,7 @@ namespace PhotoManager.UI
              name: "SetAsTitle",
              url: "Albums/SetAsTitle/{albumTitle}/{albumId}",
              defaults: new { controller = "Albums", action = "SetAsTitle", albumTitle = UrlParameter.Optional, albumId = UrlParameter.Optional });
-            
+
             routes.MapRoute(
                 name: "UpdateAlbum",
                 url: "Albums/Update/{albumId}",
@@ -43,7 +43,7 @@ namespace PhotoManager.UI
                name: "UpdatePhoto",
                url: "Photos/Update/{photoId}",
                defaults: new { controller = "Photos", action = "Update", photoId = UrlParameter.Optional });
-            
+
             routes.MapRoute(
                name: "GetPhotosByAlbumId",
                url: "Albums/GetPhotosByAlbumId/{albumId}",

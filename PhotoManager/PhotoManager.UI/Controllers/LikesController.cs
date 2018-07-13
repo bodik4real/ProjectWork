@@ -31,7 +31,7 @@ namespace PhotoManager.UI.Controllers
 
         [HttpPost]
         [Route("api/Likes/UnLike")]
-        public HttpResponseMessage UnLike([FromBody]LikeModel model)
+        public IHttpActionResult UnLike([FromBody]LikeModel model)
         {
             var userId = User.Identity.GetUserId();
 
@@ -39,12 +39,12 @@ namespace PhotoManager.UI.Controllers
             {
                 _service.UnLike(userId, model.photoId);
             }
-            return Request.CreateResponse(HttpStatusCode.OK);
+            return Ok();
         }
 
         [HttpPost]
         [Route("api/Likes/Like")]
-        public HttpResponseMessage Like([FromBody]LikeModel model)
+        public IHttpActionResult Like([FromBody]LikeModel model)
         {
             var userId = User.Identity.GetUserId();
 
@@ -57,7 +57,7 @@ namespace PhotoManager.UI.Controllers
             {
                 ModelState.AddModelError("Already Liked", status.ErrorMessage);
             }
-            return Request.CreateResponse(HttpStatusCode.OK);
+            return Ok();
         }
     }
 }

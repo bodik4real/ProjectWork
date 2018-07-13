@@ -27,7 +27,7 @@ namespace PhotoManager.Services.PhotosHandler
             CutAndSave(file, photo.SmallSizeName, smallSizeName); 
             return true;
         }
-
+        
         public void DeleteFile(string fileName)
         {
             var path = Path.Combine(HostingEnvironment.MapPath(ConfigurationManager.AppSettings["UploadPath"]), fileName);

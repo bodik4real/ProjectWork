@@ -60,9 +60,10 @@
     <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PhotoControllerTest.cs" />
+    <Compile Include="PhotoHandlerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +71,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PhotoManager.DAL\PhotoManager.DAL.csproj">
+      <Project>{F34FE8D4-4AF1-4978-BAB6-C84697B60880}</Project>
+      <Name>PhotoManager.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PhotoManager.Services\PhotoManager.Services.csproj">
       <Project>{E8641A42-5EF1-4371-A4DB-0FDDC71E6A41}</Project>
       <Name>PhotoManager.Services</Name>

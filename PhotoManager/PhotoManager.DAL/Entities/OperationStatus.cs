@@ -1,5 +1,4 @@
 ﻿
-
 namespace PhotoManager.DAL.Entities
 {
     public class OperationStatus

@@ -36,15 +36,13 @@
                                 @if (liked)
                                 {
                                     <div>
-                                        @*<i hidden id="unlikeIfLiked" class="glyphicon glyphicon-thumbs-down set-margin unlike butoonAttach1" data-photo-id="@item.PhotoId">@countLike</i>*@
-                                        <i  @*id="likeIfLiked"*@ class="glyphicon glyphicon-thumbs-down set-margin like butoonAttach1"  data-photo-id="@item.PhotoId">@countLike</i>
+                                        <i class="glyphicon glyphicon-thumbs-down set-margin like butoonAttach1"  data-photo-id="@item.PhotoId">@countLike</i>
                                     </div>
                                 }
                                 else
                                 {
                                     <div>
-                                        <i @*id="likeIfUnLiked"*@ class="glyphicon glyphicon-thumbs-up set-margin like butoonAttach1" data-photo-id="@item.PhotoId">@countLike</i>
-                                        @*<i hidden id="unLikeIfUnLiked" class="glyphicon glyphicon-thumbs-down set-margin unlike butoonAttach1" data-photo-id="@item.PhotoId">@countLike</i>*@
+                                        <i  class="glyphicon glyphicon-thumbs-up set-margin like butoonAttach1" data-photo-id="@item.PhotoId">@countLike</i>
                                     </div>
                                 }
 

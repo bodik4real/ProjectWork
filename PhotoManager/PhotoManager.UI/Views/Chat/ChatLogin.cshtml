@@ -1,0 +1,41 @@
+﻿@model PhotoManager.UI.Models.Chat.ChatUser
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="Username">
+</div>
+<div id="LastRefresh">
+</div>
+
+
+Input Your Name :
+<div id="login">
+    @*<div id="loginBlock">*@
+    <div class="col-md-6">
+        <div class="setmargin float-left">
+            <input type="text" id="txtUserName" />
+            <button id="btnLogin" class="btn btn-primary" value="SIGN IN">GO!</button>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="setmargin float-left">
+            <input type="checkbox" id="inputCheckbox" />
+            <h3>Use Login Name</h3>
+        </div>
+    </div>
+</div>
+<div id="Error">
+</div>
+@Ajax.ActionLink("Login", "Index", new { user = "" },
+        new AjaxOptions { UpdateTargetId = "login", OnFailure = "LoginOnFailure", OnSuccess = "LoginOnSuccess" },
+        new { @id = "LoginButton", @style = "visibility:hidden;" })
+@Scripts.Render("~/Scripts/chat.js")
+<script>
+
+    $(function () {
+        $('#inputCheckbox').click(function () {
+            $("#txtUserName").val($(this).prop("checked") ? "@this.User.Identity.Name" : " ");
+        });
+    });
+</script>

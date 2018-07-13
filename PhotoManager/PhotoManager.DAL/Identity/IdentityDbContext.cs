@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using PhotoManager.DAL.Entities;
-using System.Data.Entity;
 
 namespace PhotoManager.DAL.Identity
 {

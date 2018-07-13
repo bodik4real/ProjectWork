@@ -1,6 +1,4 @@
 ﻿@model IEnumerable<PhotoManager.DAL.Entities.Album>
-@using Microsoft.AspNet.Identity;
-@using PhotoManager.DAL.Entities;
 @{
     ViewBag.Title = "GetAlbumByUserId";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -26,7 +24,7 @@
                             </p>
                         </a>
                         <div class="caption text-center ">
-                            @item.Name
+                            <p>@item.Name</p>
                             <div class="btn-group @*float-right*@" role="group">
                                 <button type="button" class="btn btn-outline-primary btn btn-info btn-lg" data-toggle="modal" data-target="#@item.Name">Get Link</button>
                                 <div class="container">

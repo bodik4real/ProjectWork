@@ -1,0 +1,70 @@
+﻿@model PhotoManager.UI.Models.Photos.AdvancedSearchAndPhotos
+
+@using (Html.BeginForm("AdvancedSearch", "Search"))
+{
+    <div class="container">
+        <h1>Advanced Search</h1>
+        <div class="col-12-md-4">
+            <div class="row">
+                <div class="setmargin float-left">
+                    @Html.LabelFor(model => model.AdvancedSearch.Name):
+                    <div class="text-danger">
+                        @Html.EditorFor(model => model.AdvancedSearch.Name)
+                        @Html.ValidationMessageFor(model => model.AdvancedSearch.Name)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12-md-4 ">
+            <div class="row">
+                <div class="setmargin float-left">
+                    @Html.LabelFor(model => model.AdvancedSearch.Description):
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.AdvancedSearch.Description)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12-md-4 ">
+            <div class="row">
+                <div class="setmargin float-left">
+                    @Html.LabelFor(model => model.AdvancedSearch.ShutterSpeed):
+                    <div class="editor-field">
+                        @Html.DropDownListFor(model => model.AdvancedSearch.ShutterSpeed, new List<SelectListItem>
+                     { new SelectListItem{Text="0.01", Value="0.01"},
+                       new SelectListItem{Text="0.02", Value="0.02"},
+                       new SelectListItem{Text="0.03", Value="0.03"}}, "Please select")
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12-md-4 ">
+            <div class="row">
+                <div class="setmargin float-left">
+                    @Html.LabelFor(model => model.AdvancedSearch.Diaphragm):
+                    <div class="editor-field">
+                        @Html.DropDownListFor(model => model.AdvancedSearch.Diaphragm, new List<SelectListItem>
+                     { new SelectListItem{Text="100", Value="100"},
+                       new SelectListItem{Text="200", Value="200"},
+                       new SelectListItem{Text="400", Value="400"},
+                       new SelectListItem{Text="800", Value="800"}}, "Please select")
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12-md-4 ">
+            <div class="row">
+                <div class="setmargin float-left">
+                    @Html.LabelFor(model => model.AdvancedSearch.Flash):
+
+                    <div class="editor-field">
+                        @Html.CheckBoxFor(model => model.AdvancedSearch.Flash)
+                    </div>
+                    <input class="btn btn-primary btn-lg float-sm-left buttons butoonAttach2" type="submit" value="Search" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+

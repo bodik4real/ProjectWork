@@ -1,0 +1,16 @@
+﻿@model IEnumerable<PhotoManager.DAL.Entities.Comment>
+<div id="Comments">
+    <div id="createArea" class="form-group setmargin">
+        @foreach (var comment in Model)
+        {
+            <div  class="textwrapper border border-dark">
+              
+                @if (comment.UserId != null)
+                {
+                    <p>@comment.Date<b>@comment.UserName</b></p>
+                <span>@comment.Text</span>
+                }
+            </div>          
+        }
+    </div>
+</div>

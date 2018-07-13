@@ -1,0 +1,79 @@
+﻿
+@model PhotoManager.UI.Models.Photos.UpdatePhotoModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Update Photo</h1>
+&emsp;
+@using (Html.BeginForm("Update", "Photos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <div class="row ">
+            <div class="col-md-8 col-md-offset-3 figure-img img-fluid rounded">
+                <img src="~/Images/@Model.ActualSizeName" class="border border-primary img-thumbnail setmargin shadow-lg p-3 mb-5 bg-white rounded" height="200" alt="Your Image">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="setmargin float-right">
+                @Html.LabelFor(model => model.Name):
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="setmargin float-left">
+                @Html.EditorFor(model => model.Name)
+                <div class="text-danger">
+                    @Html.ValidationMessageFor(model => model.Name)
+                    <div class="setmargin float-left">
+                        <input type="checkbox" id="CheckboxForImageName" />
+                        <h3>Use Image Name</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.ActualSizeName)
+        @Html.HiddenFor(model => model.MediumSizeName)
+        @Html.HiddenFor(model => model.SmallSizeName)
+        @Html.Partial("Form")
+        <div class="col-md-6">
+            <div class="setmargin float-right">
+                @Html.LabelFor(x => x.File):
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="setmargin float-left text-danger">
+                @Html.TextBoxFor(x => x.File, new { type = "file", id = "inputfile", name = "inputfile", onchange = "checkFile()" })
+                @Html.ValidationMessageFor(x => x.File)
+                @Html.ValidationMessage("Size")
+                @Html.ValidationMessage("IsAnImage")
+                <input type="text" id="mytext" class="form-control form-control-lg text-danger butoonAttach1" readonly>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="setmargin float-right">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="setmargin float-left">
+                <p>
+                    <input class="btn-primary @*float-sm-right*@ buttons fileUpload " type="submit" value="Save" />
+                </p>
+            </div>
+        </div>
+    </fieldset>
+
+
+}
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/checkFile")
+    @Scripts.Render("~/bundles/Preview")
+    @Scripts.Render("~/bundles/SetCurrImageName")
+}
+
+
+

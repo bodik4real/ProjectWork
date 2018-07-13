@@ -1,0 +1,61 @@
+﻿@model IEnumerable<PhotoManager.DAL.Entities.Album>
+@using Microsoft.AspNet.Identity;
+@using PhotoManager.DAL.Entities;
+@{
+    ViewBag.Title = "GetAlbumByUserId";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="thumbnail setmargin shadow-lg p-3 mb-5 bg-white rounded">
+                        <a href="~/Albums/GetPhotosByAlbumId/@item.Id">
+                            <p>
+                                @if (string.IsNullOrWhiteSpace(item.AlbumTitle))
+                                {
+                                    <div class="img-thumbnail"><img src="/Images/defalut.png" alt="Here You should see Your Photo" style="width:100%" /></div>
+                                }
+                                else
+                                {
+                                    <div class="img-thumbnail"><img src="@String.Format("/Images/{0}", @item.AlbumTitle) " alt="Here You should see Your Photo" style="width:100%" /></div>
+                                }
+                            </p>
+                        </a>
+                        <div class="caption text-center ">
+                            @item.Name
+                            <div class="btn-group @*float-right*@" role="group">
+                                <button type="button" class="btn btn-outline-primary btn btn-info btn-lg" data-toggle="modal" data-target="#@item.Name">Get Link</button>
+                                <div class="container">
+                                    <div class="modal" id="@item.Name">
+                                        <div class="modal-dialog modal-width">
+                                            <div class="modal-content">
+                                                <div class="GetPhotosByAlbumId">
+                                                    <h4 class="modal-title">Copy the following link please</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <a href="/Albums/GetPhotosByAlbumName/@item.Name">
+                                                        @($"{HttpContext.Current.Request.Url}/GetPhotosByAlbumName/{item.Name}")
+                                                    </a>
+                                                </div>
+
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

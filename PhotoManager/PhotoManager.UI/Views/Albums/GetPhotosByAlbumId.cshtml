@@ -1,0 +1,63 @@
+﻿@model PhotoManager.DAL.Entities.Album
+@using Microsoft.AspNet.Identity;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var userIsAuthenticated = User.Identity.IsAuthenticated;
+    var currUserId = this.User.Identity.GetUserId();
+}
+
+@if (userIsAuthenticated && currUserId == Model.UserId)
+{
+    <a class="btn btn-success  butoonAttach1" href="/Photos/GetPhotosToAttach/@Model.Id" role="button">Add photos</a>
+}
+
+<hr />
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model.AlbumPhotos)
+        {
+
+            var currUser = this.User.Identity.GetUserId();
+            var liked = item.Photo.Likes.Where(x => x.UserId == currUser).Any();
+            var countLike = item.Photo.Likes.Count;
+
+            <div class="col-md-4">
+                <div class="thumbnail setmargin shadow-lg p-3 mb-5 bg-white rounded">
+                    <div class="img-thumbnail butoonAttach2">
+                        <a href="/Photos/Details/@item.PhotoId">
+                            <img src="@String.Format("/Images/{0}",@item.Photo.MediumSizeName)" alt="Here You should see Your Photo" style="width:100%" />
+                        </a>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="btn-group float-right" role="group">
+                                <a class="btn btn-primary btn btn-secondary  setmargin" href="/Albums/Detach/@item.PhotoId/@item.AlbumId" onclick="return confirm(&#39;Are You sure You want to Detach current photo?&#39;)" role="button">Detach</a>
+                                <a class="btn btn-primary btn btn-secondary  setmargin" href="/Albums/SetAsTitle/@item.Photo.MediumSizeName/@item.AlbumId" role="button">Set as Album Title</a>
+
+                                @if (liked)
+                                {
+                                    <div>
+                                        @*<i hidden id="unlikeIfLiked" class="glyphicon glyphicon-thumbs-down set-margin unlike butoonAttach1" data-photo-id="@item.PhotoId">@countLike</i>*@
+                                        <i  @*id="likeIfLiked"*@ class="glyphicon glyphicon-thumbs-down set-margin like butoonAttach1"  data-photo-id="@item.PhotoId">@countLike</i>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div>
+                                        <i @*id="likeIfUnLiked"*@ class="glyphicon glyphicon-thumbs-up set-margin like butoonAttach1" data-photo-id="@item.PhotoId">@countLike</i>
+                                        @*<i hidden id="unLikeIfUnLiked" class="glyphicon glyphicon-thumbs-down set-margin unlike butoonAttach1" data-photo-id="@item.PhotoId">@countLike</i>*@
+                                    </div>
+                                }
+
+                            </div>
+                        }
+                        else
+                        {
+                            <i id="disable" class="none-events glyphicon glyphicon-thumbs-up set-margin like butoonAttach1" data-photo-id="@item.PhotoId" value="Like">@item.Photo.Likes.Count</i>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@Scripts.Render("~/bundles/like")

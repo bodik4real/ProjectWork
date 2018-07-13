@@ -1,0 +1,76 @@
+﻿@model PhotoManager.UI.Models.Photos.CreatePhotoModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Create photo</h1>
+&emsp;
+
+@using (Html.BeginForm("Create", "Photos", FormMethod.Post, new { @id = "fileUpload", enctype = "multipart/form-data", onsubmit = "return checkFile();" }))
+{
+    <script type="text/javascript">
+    </script>
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <div class="row ">
+            <div class="col-md-8 col-md-offset-3 figure-img img-fluid rounded">
+                <img src="" class="img-thumbnail">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="setmargin float-right">
+                @Html.LabelFor(model => model.Name):
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="setmargin float-left">
+                @Html.EditorFor(model => model.Name)
+                <div class="setmargin ">
+                    <input type="checkbox" id="CheckboxForImageName" />
+                    Use Image Name
+                </div>
+                <div class="text-danger">
+                    @Html.ValidationMessageFor(model => model.Name)
+
+                </div>
+            </div>
+        </div>
+
+        @Html.Partial("Form")
+        <h1> </h1>
+
+        <div class="col-12 butoonAttach1">
+            <div class="col-md-6">
+                <div class="setmargin float-right">
+                    @Html.LabelFor(x => x.File):
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="setmargin float-left text-danger">
+
+                    @Html.TextBoxFor(x => x.File, new { type = "file", id = "inputfile", name = "inputfile", onchange = "checkFile()" })
+                    @Html.ValidationMessageFor(x => x.File)
+                    @Html.ValidationMessage("Size")
+                    @Html.ValidationMessage("Empty")
+                    @Html.ValidationMessage("IsAnImage")
+                    <input type="text" id="mytext" class="form-control form-control-lg text-danger butoonAttach1" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="setmargin float-right">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="setmargin float-left">
+                <input class="btn-primary float-right butoonAttach1 butoonAttach2 fileUpload" type="submit" name="inputfile" value="Create" @*onclick="checkFile();"*@ />
+            </div>
+        </div>
+    </fieldset>
+}
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/checkFile")
+    @Scripts.Render("~/bundles/Preview")
+    @Scripts.Render("~/bundles/SetCurrImageName")
+}

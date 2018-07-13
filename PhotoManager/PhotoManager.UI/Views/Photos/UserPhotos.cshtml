@@ -1,0 +1,37 @@
+﻿
+@model IEnumerable<PhotoManager.DAL.Entities.Photo>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a class="btn btn-success btn-lg btn-block  butoonAttach1" href="/Search/AdvancedSearch" role="button">Advanced Search</a>
+<hr>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="thumbnail setmargin shadow-lg p-3 mb-5 bg-white rounded">
+                    <div class="img-thumbnail">
+                        @if (string.IsNullOrWhiteSpace(item.MediumSizeName))
+                        {
+                            <div class="img-thumbnail"><img src="/Images/defalut.png" alt="Here You should see Your Photo" style="width:100%" /></div>
+                        }
+                        else
+                        {
+                            <a href="/Photos/Details/@item.Id"><img src="~/Images/@item.MediumSizeName" alt="Here You should see Your Photo" style="width:100%" /></a>
+                        }
+                        <div class="caption text-center ">
+                            @item.Name
+                            <div class="btn-group float-right" role="group">
+                                <a class="btn btn-outline-primary btn btn-secondary" href="/Photos/Delete/@item.Id" onclick="return confirm(&#39;Are You sure You want to remove current photo?&#39;)" role="button"><i class="glyphicon glyphicon-trash"></i> Delete </a>
+                                <a class="btn btn-outline-primary btn btn-secondary" href="/Photos/Update/@item.Id" role="button"><i class="glyphicon glyphicon-pencil"></i>Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,65 @@
+﻿@model PhotoManager.UI.Models.Photos.BasePhotoModel
+<div class="container">
+    
+    <div class="col-md-6">
+        <div class="setmargin float-right">
+            @Html.LabelFor(model => model.Date)
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="setmargin float-left">
+            @Html.EditorFor(model => model.Date)
+            <div class="text-danger">
+                @Html.ValidationMessageFor(model => model.Date)
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="setmargin float-right">
+            @Html.LabelFor(model => model.Description):
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="setmargin float-left">
+            @Html.EditorFor(model => model.Description)
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="setmargin float-right">
+            @Html.LabelFor(model => model.ShutterSpeed):
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="setmargin float-left">
+            @Html.DropDownListFor(model => model.ShutterSpeed, new List<SelectListItem>
+                     { new SelectListItem{Text="0.01", Value="0.01"},
+                       new SelectListItem{Text="0.02", Value="0.02"},
+                       new SelectListItem{Text="0.03", Value="0.03"}}, "Please select")
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="setmargin float-left">
+            @Html.CheckBoxFor(model => model.Flash, new { @id = "Flash", @unchecked = ViewBag.Flash })Flash
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="setmargin float-right">
+            @Html.LabelFor(model => model.Diaphragm):
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="setmargin float-left">
+
+            @Html.DropDownListFor(model => model.Diaphragm, new List<SelectListItem>
+                     { new SelectListItem{Text="100", Value="100"},
+                       new SelectListItem{Text="200", Value="200"},
+                       new SelectListItem{Text="400", Value="400"},
+                       new SelectListItem{Text="800", Value="800"}}, "Please select")
+        </div>
+    </div>
+</div>

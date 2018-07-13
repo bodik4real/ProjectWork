@@ -1,0 +1,28 @@
+﻿@model IEnumerable<PhotoManager.DAL.Entities.Photo>
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="thumbnail setmargin shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="img-thumbnail">
+                    <a href="/Photos/Details/@item.Id"><img src="~/Images/@item.MediumSizeName" alt="Here You should see Your Photo" style="width:100%" /></a>
+                    <div class="caption text-center ">
+                        @item.Name
+                        @if (this.User.Identity.IsAuthenticated && this.User.Identity.GetUserId() == item.UserId)
+                        {
+                        <div class="btn-group float-right" role="group">
+                            <a class="btn btn-outline-primary btn btn-secondary" href="/Photos/Delete/@item.Id" onclick="return confirm(&#39;Are You sure You want to remove current photo?&#39;)" role="button"> Delete </a>
+                            <a class="btn btn-outline-primary btn btn-secondary" href="/Photos/Update/@item.Id" role="button">Edit</a>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,30 @@
+﻿@model PhotoManager.UI.Models.Albums.CreateAlbumModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create Album</h1>
+
+@using (Html.BeginForm("Create", "Albums"))
+{
+
+    @Html.ValidationSummary(true)
+    <fieldset>
+
+        @Html.Partial("Form")
+        <h1> </h1>
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-6">
+            <div class="setmargin float-left">
+                <input class="btn-primary float-right butoonAttach1 butoonAttach2" type="submit" value="Create" />
+            </div>
+        </div>
+
+    </fieldset>
+}
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

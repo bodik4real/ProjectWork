@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>@ViewBag.Title - ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @Scripts.Render("~/scripts/jquery-3.3.1.js")
+    @Scripts.Render("~/bundles/bootstrap")
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-collapse photomanager-brand col-2 p-3 mb-2 text-white" href="/Albums/GetAll">PhotoManager</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                @if (this.User.Identity.IsAuthenticated)
+                {
+                    <ul class="navbar-nav mr-1">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Albums
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item dropdown-menu-item-size" href="/Albums/UserAlbums"><i class="glyphicon glyphicon-book"></i> My Albums</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item dropdown-menu-item-size" href="/Albums/Create"><i class="glyphicon glyphicon-folder-open"></i> Create Album </a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Photos
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item dropdown-menu-item-size" href="/Photos/UserPhotos"><i class="glyphicon glyphicon-film"></i> My Photos</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item dropdown-menu-item-size" href="/Photos/Create"><i class="glyphicon glyphicon-download"></i> Upload Photo</a>
+                            </div>
+                        </li>
+                    </ul>
+                }
+                <div class="form-inline setmargin navbar-collapse">
+                    @using (Html.BeginForm("Search", "Search"))
+                    {
+                        <input class="form-control mr-2 text-xl-left btn" id="searchingString" name="searchingString" type="text" placeholder="Search photos">
+                        <button class="btn-primary float-right" type="submit" value="Search"><i class="glyphicon glyphicon-search"></i></button>
+                    }
+                    @*<a  href="/Chat/ChatLogin" class="nav-link text-white" role="button">
+                        Chat
+                    </a>*@
+                </div>
+                @if (this.User.Identity.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="nav-link dropdown-toggle text-white" href="#" aria-haspopup="true" aria-expanded="false">
+                                @User.Identity.Name
+                            </a>
+
+                        </li>
+                        <li><a href="/Account/LogOff">Log off</a></li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right" style="margin-left:auto">
+                        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                    </ul>
+                }
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content bgrnd">
+        @RenderBody()
+
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

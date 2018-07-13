@@ -1,0 +1,30 @@
+﻿@model PhotoManager.UI.Models.Photos.AdvancedSearchAndPhotos
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            @Html.Partial("AdvancedSearch")
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+                @foreach (var item in Model.Photos)
+            {
+                    <div class="col-6">
+                        <div class="thumbnail setmargin shadow-lg p-3 mb-5 bg-white rounded">
+
+                            <div class="img-thumbnail"><a href="/Photos/Details/@item.Id"><img src="~/Images/@item.SmallSizeName" alt="Here You should see Your Photo" style="width:100%" /></a></div>
+                            <div class="caption text-center ">
+                                @item.Name
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,61 @@
+﻿@model List<PhotoManager.UI.Models.AlbumPhotosModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<hr />
+<script>
+    if ($('input.checkbox_check').is(':checked')) {
+        $("#checkboxId").prop('checked', true);
+    }
+    else {
+        $("#checkboxId").prop('checked', false);
+    }
+</script>
+
+@using (Html.BeginForm("AddPhotos", "Albums"))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <div class="butoonAttach2  AttachCancelB ">
+            <a href="/Albums/UserAlbums"><button type="button" class="btn btn-danger float-sm-right buttons">Cancel</button></a>
+            @if (Model.Count != 0)
+            {
+                <input class="btn-success float-sm-right buttons" type="submit" value="Attach" />
+            }
+            else
+            {
+                <a href="/Photos/UserPhotos" class="setmargin"><button type="button" class="btn btn-success float-sm-right buttons">Attach</button></a>
+            }
+        </div>
+        <div class="container">
+            <div class="row">
+
+
+                @for (int i = 0; i < Model.Count(); i++)
+                {
+                    <div class="col-md-4">
+                        <div class="thumbnail shadow-lg p-3 mb-5 bg-white rounded">
+                            <div class="img-thumbnail ">
+                                <label class="labelCheckBox">
+                                    <img src="~/Images/@Model[i].MediumSizeName" alt="Here You should see Your Photo" style="width:100%" />
+                                    @Html.CheckBoxFor(x => Model[i].IsChecked)
+                                </label>
+                                @Html.HiddenFor(x => Model[i].PhotoId)
+                                @Html.HiddenFor(x => Model[i].AlbumId)
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+
+        @if (Model.Count != 0)
+        {
+            <p>
+                <a href="/Albums/UserAlbums"><button type="button" class="btn btn-danger float-sm-right buttons butoonAttach2 AttachCancelB">Cancel</button></a>
+                <input class="btn-success float-sm-right buttons butoonAttach2" type="submit" value="Attach" />
+            </p>
+        }
+    </fieldset>
+}

@@ -1,0 +1,40 @@
+﻿@model PhotoManager.UI.Models.Albums.BaseAlbumModel
+<div class="container">
+    <div class="col-md-6">
+        <div class="setmargin float-right">
+            @Html.LabelFor(model => model.Name):
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="setmargin float-left ">
+            @Html.EditorFor(model => model.Name)
+            <div class="text-danger">
+                @Html.ValidationMessage("CustomEror")
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="setmargin float-right">
+            @Html.LabelFor(model => model.Date)
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="setmargin float-left">
+            @Html.EditorFor(model => model.Date)
+            <div class="text-danger">
+                @Html.ValidationMessageFor(model => model.Date)
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="setmargin float-right">
+            @Html.LabelFor(model => model.Description):
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="setmargin float-left">
+            @Html.EditorFor(model => model.Description)
+        </div>
+    </div>
+</div>

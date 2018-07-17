@@ -2,9 +2,11 @@
 using PhotoManager.DAL.Entities;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Drawing;
 using System.IO;
 using System.Web;
+using System.Web.Hosting;
 
 namespace PhotoManager.Services.PhotosHandler
 {
@@ -144,9 +146,11 @@ namespace PhotoManager.Services.PhotosHandler
 
         private void DeleteOldImages(Photo photo)
         {
-            _handler.DeleteFile(photo.ActualSizeName);
-            _handler.DeleteFile(photo.MediumSizeName);
-            _handler.DeleteFile(photo.SmallSizeName);
+            var path = HostingEnvironment.MapPath(ConfigurationManager.AppSettings["UploadPath"]);
+
+            _handler.DeleteFile(Path.Combine(path, photo.ActualSizeName));
+            _handler.DeleteFile(Path.Combine(path, photo.MediumSizeName));
+            _handler.DeleteFile(Path.Combine(path, photo.SmallSizeName));
         }
 
         private void CreateNewNames(Photo photo, HttpPostedFileBase file)

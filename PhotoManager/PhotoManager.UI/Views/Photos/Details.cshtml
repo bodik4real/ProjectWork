@@ -40,7 +40,7 @@
             {
                 if (this.User.Identity.GetUserId() == Model.UserId)
                 {
-                    <a class="btn btn-danger btn btn-secondary butoonAttach1 commentFieldandButton"  href="/Photos/Delete/@Model.Id" onclick="return confirm(&#39;Are You sure You want to remove current photo?&#39;)" role="button"> Delete </a>
+                    <a class="btn btn-danger btn btn-secondary butoonAttach1 commentFieldandButton" href="/Photos/Delete/@Model.Id" onclick="return confirm(&#39;Are You sure You want to remove current photo?&#39;)" role="button"> Delete </a>
                     <a class="btn btn-warning btn btn-secondary butoonAttach1" href="/Photos/Update/@Model.Id" role="button">Edit</a>
                     <a class="btn btn-light btn btn-secondary butoonAttach1" href="/Photos/UserPhotos" role="button">Close</a>
                 }
@@ -48,11 +48,14 @@
         </div>
     </div>
     <div id="RefreshArea">
-        <div class="commentFieldandButton">
-            <h3>Comment:</h3>
-            <p><textarea id="comment" rows="3" placeholder="Write something here"></textarea></p>
-            <a id="btnSend" href="#" class="btn btn-success" data-photo-id="@Model.Id" role="button">Send</a>
-        </div>
+        @if (this.User.Identity.IsAuthenticated)
+        {
+            <div class="commentFieldandButton">
+                <h3>Comment:</h3>
+                <p><textarea id="comment" rows="3" placeholder="Write something here"></textarea></p>
+                <a id="btnSend" href="#" class="btn btn-success" data-photo-id="@Model.Id" role="button">Send</a>
+            </div>
+        }
         @Html.Partial("CommentHistory", Model.Comments)
     </div>
 </div>

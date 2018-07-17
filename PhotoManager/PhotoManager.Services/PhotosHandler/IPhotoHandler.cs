@@ -6,6 +6,6 @@ namespace PhotoManager.Services.PhotosHandler
     public interface IPhotoHandler
     {
         bool ReceivePhoto(HttpPostedFileBase file, Photo photo);
-        void DeleteFile(string fileName);
+        bool DeleteFile(string fileName);
     }
 }

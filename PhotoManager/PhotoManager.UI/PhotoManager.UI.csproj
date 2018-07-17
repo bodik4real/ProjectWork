@@ -274,7 +274,6 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Scripts\custom\chat.js" />
     <Content Include="Scripts\custom\checkFile.js" />
     <Content Include="Scripts\custom\comment.js" />
     <Content Include="Scripts\custom\Preview.js" />

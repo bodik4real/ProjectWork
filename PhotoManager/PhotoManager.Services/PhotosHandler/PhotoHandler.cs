@@ -28,11 +28,19 @@ namespace PhotoManager.Services.PhotosHandler
             return true;
         }
         
-        public void DeleteFile(string fileName)
+        public bool DeleteFile(string path)
         {
-            var path = Path.Combine(HostingEnvironment.MapPath(ConfigurationManager.AppSettings["UploadPath"]), fileName);
-            File.Delete(path);
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
+
         private void CutAndSave(HttpPostedFileBase file, string fileName, int cutPixels = 0)
         {
             Bitmap croppedImage;

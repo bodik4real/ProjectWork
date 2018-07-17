@@ -1,42 +1,97 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PhotoManager.DAL.Entities;
 using PhotoManager.Services.PhotosHandler;
 using Moq;
 using System.Web;
+using System.IO;
+using System.Configuration;
+using System;
+using System.Drawing;
+using System.Drawing.Imaging;
+using PhotoManager.DAL.Entities;
 
 namespace UnitTestProject
 {
     [TestClass]
     public class PhotoHandlerTest
     {
-        private PhotoHandler _subject;
-      
+        private PhotoHandler _handler;
+
         [TestInitialize]
         public void Initialize()
         {
-            _subject = new PhotoHandler();
-
+            _handler = new PhotoHandler();
         }
 
         [TestMethod]
-        public void TestIsMethodCalled()
+        public void TestDeleteFile()
         {
-            //Mock photo = new Mock<Photo>();
-            //Mock file = new Mock<HttpPostedFileBase>();
+            var path = Path.Combine((ConfigurationManager.AppSettings["UploadPath"]), "TEST.jpg");
+            var byteArray = File.ReadAllBytes(path);
+            var ms = new MemoryStream(byteArray);
+            var image = Image.FromStream(ms);
+            var pathToDeleteFile = Path.Combine(ConfigurationManager.AppSettings["UploadPath"], "TestFile.jpg");
 
-            //_subject.ReceivePhoto(file, photo)
-            var photo = new Photo();
+            image.Save(pathToDeleteFile, ImageFormat.Jpeg);
 
-            var file = new PhotoFileMock();
-            var result =  _subject.ReceivePhoto(file, photo);
+            var result = _handler.DeleteFile(pathToDeleteFile);
 
-            Assert.IsTrue(result);
+            Assert.IsTrue(result, "File was deleted!");
 
+            if (File.Exists(pathToDeleteFile))
+            {
+                File.Delete(pathToDeleteFile);
+            }
         }
- 
-    }
-    public class PhotoFileMock : HttpPostedFileBase
-    {
+        [TestMethod]
+        public void TestReceivePhoto()
+        {
+            HttpPostedFileBase httpPostedFile = Mock.Of<HttpPostedFileBase>();
+            var mock = Mock.Get(httpPostedFile);
+            mock.Setup(name => httpPostedFile.FileName).Returns("fakeFileName");
 
+
+            var testPhoto = new Photo();
+            testPhoto.ActualSizeName = "";
+        }
+
+    }
+    class MemoryFile : HttpPostedFileBase
+    {
+        Stream stream;
+        string contentType;
+        string fileName;
+
+        public MemoryFile(Stream stream, string contentType, string fileName)
+        {
+            this.stream = stream;
+            this.contentType = contentType;
+            this.fileName = fileName;
+        }
+
+        public override int ContentLength
+        {
+            get { return (int)stream.Length; }
+        }
+
+        public override string ContentType
+        {
+            get { return contentType; }
+        }
+
+        public override string FileName
+        {
+            get { return fileName; }
+        }
+
+        public override Stream InputStream
+        {
+            get { return stream; }
+        }
+
+        public override void SaveAs(string filename)
+        {
+            using (var file = File.Open(filename, FileMode.CreateNew))
+                stream.CopyTo(file);
+        }
     }
 }

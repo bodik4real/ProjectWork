@@ -47,6 +47,7 @@
                 @Html.TextBoxFor(x => x.File, new { type = "file", id = "inputfile", name = "inputfile", onchange = "checkFile()" })
                 @Html.ValidationMessageFor(x => x.File)
                 @Html.ValidationMessage("Size")
+                @Html.ValidationMessage("Empty")
                 @Html.ValidationMessage("IsAnImage")
                 <input type="text" id="mytext" class="form-control form-control-lg text-danger butoonAttach1" readonly>
             </div>

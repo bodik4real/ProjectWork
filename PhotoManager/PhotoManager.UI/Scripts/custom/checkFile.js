@@ -13,12 +13,15 @@
 
         if (fileExtension.toLowerCase() == "jpg" || fileExtension.toLowerCase() == "jpeg") {
             var callback = function (img) {
-                if (img.height >= 1000 || img.width >= 1000) {
+                if (img.height >= 1000 || img.width >= 1000)
+                {
                     Preview();
                     return true;
                 }
-                else {
+                else
+                {
                     document.getElementById("mytext").value = "Your image hasn’t enough quality!!!";
+                    $("#submitButton").prop('disabled', true);
                     return false;
                 }
             }

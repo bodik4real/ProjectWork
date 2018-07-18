@@ -23,6 +23,7 @@ namespace PhotoManager.Services.PhotosHandler
         public OperationStatus Add(Photo photo, HttpPostedFileBase file)
         {
             var status = new OperationStatus();
+            var path = HostingEnvironment.MapPath(ConfigurationManager.AppSettings["UploadPath"]);
 
             try
             {
@@ -31,7 +32,7 @@ namespace PhotoManager.Services.PhotosHandler
 
                     CreateNewNames(photo, file);
 
-                    if (_handler.ReceivePhoto(file, photo))
+                    if (_handler.ReceivePhoto(file, photo, path))
                     {
                         _repository.Add(photo);
                     }
@@ -90,6 +91,7 @@ namespace PhotoManager.Services.PhotosHandler
         public OperationStatus Update(Photo photo, HttpPostedFileBase file)
         {
             var status = new OperationStatus();
+            var path = HostingEnvironment.MapPath(ConfigurationManager.AppSettings["UploadPath"]);
 
             if (file != null)
             {
@@ -101,7 +103,7 @@ namespace PhotoManager.Services.PhotosHandler
                         DeleteOldImages(photo);
                         CreateNewNames(photo, file);
 
-                        if (_handler.ReceivePhoto(file, photo))
+                        if (_handler.ReceivePhoto(file, photo, path))
                         {
                             _repository.Update(photo);
                         }

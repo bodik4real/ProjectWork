@@ -276,8 +276,8 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Scripts\custom\checkFile.js" />
     <Content Include="Scripts\custom\comment.js" />
-    <Content Include="Scripts\custom\Preview.js" />
-    <Content Include="Scripts\custom\SetCurrImageName.js" />
+    <Content Include="Scripts\custom\preview.js" />
+    <Content Include="Scripts\custom\setCurrImageName.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />

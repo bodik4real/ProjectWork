@@ -138,8 +138,6 @@ namespace PhotoManager.DAL.Repositories
             DeletePhysically(photoToDelete);
 
             _context.Photos.Remove(photoToDelete);
-        
-           //If photoToDelete is title of any album => change it. 
 
             _context.SaveChanges();
 

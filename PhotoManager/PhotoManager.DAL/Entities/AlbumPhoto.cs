@@ -1,5 +1,4 @@
-﻿
-namespace PhotoManager.DAL.Entities
+﻿namespace PhotoManager.DAL.Entities
 {
     public class AlbumPhoto
     {

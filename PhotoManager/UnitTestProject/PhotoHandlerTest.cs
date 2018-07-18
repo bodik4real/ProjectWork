@@ -47,11 +47,27 @@ namespace UnitTestProject
         {
             HttpPostedFileBase httpPostedFile = Mock.Of<HttpPostedFileBase>();
             var mock = Mock.Get(httpPostedFile);
-            mock.Setup(name => httpPostedFile.FileName).Returns("fakeFileName");
-
 
             var testPhoto = new Photo();
-            testPhoto.ActualSizeName = "";
+
+            testPhoto.ActualSizeName = "TestFileActualSizeName.jpg";
+            testPhoto.MediumSizeName = "TestFileMediumSizeName.jpg";
+            testPhoto.SmallSizeName = "TestFileSmallSizeName.jpg";
+
+            var path = (ConfigurationManager.AppSettings["UploadPath"]);
+            var pathToFile = Path.Combine(path, "TEST.jpg");
+            var byteArray = File.ReadAllBytes(pathToFile);
+            var ms = new MemoryStream(byteArray);
+
+            var image =  Image.FromStream(ms);
+
+            image.Save(path+testPhoto.ActualSizeName, ImageFormat.Jpeg);
+            image.Save(path+testPhoto.MediumSizeName, ImageFormat.Jpeg);
+            image.Save(path+testPhoto.SmallSizeName, ImageFormat.Jpeg);
+
+            var result = _handler.ReceivePhoto(httpPostedFile, testPhoto, path);
+
+            Assert.IsTrue(result);
         }
 
     }

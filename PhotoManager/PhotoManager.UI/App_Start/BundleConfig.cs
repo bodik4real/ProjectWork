@@ -29,8 +29,8 @@ namespace PhotoManager.UI
             bundles.Add(new ScriptBundle("~/bundles/like").Include("~/Scripts/custom/like.js"));
             bundles.Add(new ScriptBundle("~/bundles/comment").Include("~/Scripts/custom/comment.js"));
             bundles.Add(new ScriptBundle("~/bundles/checkFile").Include("~/Scripts/custom/checkFile.js"));
-            bundles.Add(new ScriptBundle("~/bundles/Preview").Include("~/Scripts/custom/Preview.js"));
-            bundles.Add(new ScriptBundle("~/bundles/SetCurrImageName").Include("~/Scripts/custom/SetCurrImageName.js"));
+            bundles.Add(new ScriptBundle("~/bundles/preview").Include("~/Scripts/custom/preview.js"));
+            bundles.Add(new ScriptBundle("~/bundles/setCurrImageName").Include("~/Scripts/custom/setCurrImageName.js"));
         }
     }
 }

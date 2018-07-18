@@ -10,6 +10,7 @@ using System.Net;
 
 namespace PhotoManager.UI.Controllers
 {
+    [Authorize]
     public class CommentController : ApiController
     {
         private ApplicationUserManager _userManager;

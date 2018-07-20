@@ -23,7 +23,7 @@ namespace UnitTestProject
         private List<Photo> expectedData;
 
         [TestMethod]
-        public void TestUserPhotosMethod()
+        public void UserPhotosGetPhotosSuccessfullyTest()
         {
             expectedData = new List<Photo> { new Photo { Id = 5, Name = "cvfw" } };
             CreateControllerInstance(GenerateServiceMock(expectedData));
@@ -34,7 +34,7 @@ namespace UnitTestProject
         }
 
         [TestMethod]
-        public void UserPhotosReturnsViewIfPhotosAreEmpty()
+        public void UserPhotosGetEmptyListTest()
         {
             expectedData = new List<Photo>(0);
             CreateControllerInstance(GenerateServiceMock(expectedData));

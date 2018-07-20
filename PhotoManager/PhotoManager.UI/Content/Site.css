@@ -16,24 +16,25 @@ textarea { max-width: 280px; }
 .dropdown-menu-item-size { font-size: 2rem !important; }
 .btn { font-size: 1.5rem !important; }
 .modal-width { max-width: 50% !important; }
-.setmargin {margin: 10px; }
-body {background-color:lightskyblue; }
+.setmargin { margin: 10px; }
+body { background-color: lightskyblue; }
 .bgrnd { background-color: white; }
 .labelCheckBox { text-align: center; }
 .img-responsive { max-width: 100%; width: 70vw; height: 55vh; background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 70%; }
 .buttons { width: 80px; height: 40px; margin-right: 2px; display: block; font-size: 2 rem; }
 img { max-width: 100%; height: auto; max-height: 100%; }
-.butoonAttach1 { margin-top:10px;}
-.butoonAttach2 { margin-bottom:20px; }
-.AttachCancelB{ margin-right: 20px; }
+.butoonAttach1 { margin-top: 10px; }
+.butoonAttach2 { margin-bottom: 20px; }
+.AttachCancelB { margin-right: 20px; }
 .column { float: left; padding: 10px; /* Should be removed. Only for demonstration */ }
 .left { width: 25%; }
 .right { width: 75%; }
 /* Clear floats after the columns */
 .row:after { content: ""; display: table; clear: both; }
 .imageSize { height: 715px; }
-.set-marginLeft{ margin-left:20px;  }
+.set-marginLeft { margin-left: 20px; }
 .center { text-align: center !important; border: 3px solid green; }
 .none-events { pointer-events: none; }
-.textwrapper { width:100%; margin: 10px 0; padding: 10px; }
-.commentFieldandButton { margin-left:13px;}
+.textwrapper { width: 100%; margin: 10px 0; padding: 10px; }
+.commentFieldandButton { margin-left: 13px; }
+

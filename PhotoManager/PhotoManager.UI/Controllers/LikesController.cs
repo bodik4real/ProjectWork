@@ -53,10 +53,10 @@ namespace PhotoManager.UI.Controllers
             like.UserId = userId;
 
             var status = _service.Like(like);
-            if (!string.IsNullOrWhiteSpace(status.ErrorMessage))
-            {
-                ModelState.AddModelError("Already Liked", status.ErrorMessage);
-            }
+            //if (!string.IsNullOrWhiteSpace(status.ErrorMessage))
+            //{
+            //    ModelState.AddModelError("Already Liked", status.ErrorMessage);
+            //}
             return Ok();
         }
     }

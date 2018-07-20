@@ -1,0 +1,173 @@
+﻿<error errorId="4a592cce-22cc-468f-94a6-f29a2a9e1d70" host="BDOKHNIAK" type="System.Web.HttpException" message="The controller for path '/CustomErrorPage.cshtml/' was not found or does not implement IController." source="System.Web.Mvc" detail="System.Web.HttpException (0x80004005): The controller for path '/CustomErrorPage.cshtml/' was not found or does not implement IController.&#xD;&#xA;   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)&#xD;&#xA;   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController&amp; controller, IControllerFactory&amp; factory)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="BohdanTest0012@gmail.com" time="2018-07-19T09:57:20.3254221Z" statusCode="404">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.9&#xD;&#xA;HTTP_COOKIE:__RequestVerificationToken=tMM-FT0xftEikIB7wqqJDdVNXYFJjOpNlrmeKVBW6lktLSCaArwXHn0wHvAzd6Er-o5g8_rXDjAM7fhKNjyRdrGMLinA2axKvHLMj1X__AI1; .AspNet.ApplicationCookie=fWSHRNTPf4Revgdh1atNfroaFV1NkDfYL-zJoaVIo9LSS2u1daah-ej4gEinWzW47BVs0HK09CSZsrrtWKGYYiv6LAtDOVvBb8xANezlBVo09AV4q_Ra_kTvHqtJWF307r2HeKut6VClTE3TEYj1yoS8dHRDH-_GotXEY087800AB70RcdX7OUde-5mX0X-Tnn4ToLvXRTJjWlpIOP-CGEP2-C7eY20h2KUC2J7J_Qqe7RtGOOWwl816JLOB8vtZyrWpgGKTSkePx0M0iKzdajhBLqC8gFjaaoA8FG_O5fWNtV4QhPRR64tA5d2SM-vqOIihhYgP262-LhEewM3TOHgFBi3b3SOBIYPAkiuWlx1w3c-N7PKqcyajYzwI7Wncn--VBzgwrXKoD_-E6Ql-_OrLiLwI89a16MtJL2xlpFCLsgpOz8NuoqxlFjdhlV7aDoT3xXvj104doR_3Yx4_HY0JiO2UDiEUgNE83HeDRgZEx8xuv7k9Mh3aFi0LkPy2&#xD;&#xA;HTTP_HOST:localhost:55376&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: en-US,en;q=0.9&#xD;&#xA;Cookie: __RequestVerificationToken=tMM-FT0xftEikIB7wqqJDdVNXYFJjOpNlrmeKVBW6lktLSCaArwXHn0wHvAzd6Er-o5g8_rXDjAM7fhKNjyRdrGMLinA2axKvHLMj1X__AI1; .AspNet.ApplicationCookie=fWSHRNTPf4Revgdh1atNfroaFV1NkDfYL-zJoaVIo9LSS2u1daah-ej4gEinWzW47BVs0HK09CSZsrrtWKGYYiv6LAtDOVvBb8xANezlBVo09AV4q_Ra_kTvHqtJWF307r2HeKut6VClTE3TEYj1yoS8dHRDH-_GotXEY087800AB70RcdX7OUde-5mX0X-Tnn4ToLvXRTJjWlpIOP-CGEP2-C7eY20h2KUC2J7J_Qqe7RtGOOWwl816JLOB8vtZyrWpgGKTSkePx0M0iKzdajhBLqC8gFjaaoA8FG_O5fWNtV4QhPRR64tA5d2SM-vqOIihhYgP262-LhEewM3TOHgFBi3b3SOBIYPAkiuWlx1w3c-N7PKqcyajYzwI7Wncn--VBzgwrXKoD_-E6Ql-_OrLiLwI89a16MtJL2xlpFCLsgpOz8NuoqxlFjdhlV7aDoT3xXvj104doR_3Yx4_HY0JiO2UDiEUgNE83HeDRgZEx8xuv7k9Mh3aFi0LkPy2&#xD;&#xA;Host: localhost:55376&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/4/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\ProjectWork\PhotoManager\PhotoManager.UI\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="ApplicationCookie" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="BohdanTest0012@gmail.com" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="BohdanTest0012@gmail.com" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="BohdanTest0012@gmail.com" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="4" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/4" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/CustomErrorPage.cshtml/" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\ProjectWork\PhotoManager\PhotoManager.UI\CustomErrorPage.cshtml\" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="aspxerrorpath=/Shared/CustomErrorPage" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="58418" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/CustomErrorPage.cshtml/" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="55376" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/CustomErrorPage.cshtml/" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.9" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="__RequestVerificationToken=tMM-FT0xftEikIB7wqqJDdVNXYFJjOpNlrmeKVBW6lktLSCaArwXHn0wHvAzd6Er-o5g8_rXDjAM7fhKNjyRdrGMLinA2axKvHLMj1X__AI1; .AspNet.ApplicationCookie=fWSHRNTPf4Revgdh1atNfroaFV1NkDfYL-zJoaVIo9LSS2u1daah-ej4gEinWzW47BVs0HK09CSZsrrtWKGYYiv6LAtDOVvBb8xANezlBVo09AV4q_Ra_kTvHqtJWF307r2HeKut6VClTE3TEYj1yoS8dHRDH-_GotXEY087800AB70RcdX7OUde-5mX0X-Tnn4ToLvXRTJjWlpIOP-CGEP2-C7eY20h2KUC2J7J_Qqe7RtGOOWwl816JLOB8vtZyrWpgGKTSkePx0M0iKzdajhBLqC8gFjaaoA8FG_O5fWNtV4QhPRR64tA5d2SM-vqOIihhYgP262-LhEewM3TOHgFBi3b3SOBIYPAkiuWlx1w3c-N7PKqcyajYzwI7Wncn--VBzgwrXKoD_-E6Ql-_OrLiLwI89a16MtJL2xlpFCLsgpOz8NuoqxlFjdhlV7aDoT3xXvj104doR_3Yx4_HY0JiO2UDiEUgNE83HeDRgZEx8xuv7k9Mh3aFi0LkPy2" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:55376" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+    <item name="HTTP_APPLICATIONINSIGHTS_REQUESTTRACKINGTELEMETRYMODULE_ROOTREQUEST_ID">
+      <value string="ea62a21a-018a-4dae-83df-16e5bf161b5e" />
+    </item>
+  </serverVariables>
+  <queryString>
+    <item name="aspxerrorpath">
+      <value string="/Shared/CustomErrorPage" />
+    </item>
+  </queryString>
+  <cookies>
+    <item name="__RequestVerificationToken">
+      <value string="tMM-FT0xftEikIB7wqqJDdVNXYFJjOpNlrmeKVBW6lktLSCaArwXHn0wHvAzd6Er-o5g8_rXDjAM7fhKNjyRdrGMLinA2axKvHLMj1X__AI1" />
+    </item>
+    <item name=".AspNet.ApplicationCookie">
+      <value string="fWSHRNTPf4Revgdh1atNfroaFV1NkDfYL-zJoaVIo9LSS2u1daah-ej4gEinWzW47BVs0HK09CSZsrrtWKGYYiv6LAtDOVvBb8xANezlBVo09AV4q_Ra_kTvHqtJWF307r2HeKut6VClTE3TEYj1yoS8dHRDH-_GotXEY087800AB70RcdX7OUde-5mX0X-Tnn4ToLvXRTJjWlpIOP-CGEP2-C7eY20h2KUC2J7J_Qqe7RtGOOWwl816JLOB8vtZyrWpgGKTSkePx0M0iKzdajhBLqC8gFjaaoA8FG_O5fWNtV4QhPRR64tA5d2SM-vqOIihhYgP262-LhEewM3TOHgFBi3b3SOBIYPAkiuWlx1w3c-N7PKqcyajYzwI7Wncn--VBzgwrXKoD_-E6Ql-_OrLiLwI89a16MtJL2xlpFCLsgpOz8NuoqxlFjdhlV7aDoT3xXvj104doR_3Yx4_HY0JiO2UDiEUgNE83HeDRgZEx8xuv7k9Mh3aFi0LkPy2" />
+    </item>
+  </cookies>
+</error>

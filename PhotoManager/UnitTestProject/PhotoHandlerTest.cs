@@ -4,22 +4,22 @@ using Moq;
 using System.Web;
 using System.IO;
 using System.Configuration;
-using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using PhotoManager.DAL.Entities;
+
 
 namespace UnitTestProject
 {
     [TestClass]
     public class PhotoHandlerTest
     {
-        private PhotoHandler _handler;
-
+        private PhotoHandler _handler;         
+       
         [TestInitialize]
         public void Initialize()
         {
-            _handler = new PhotoHandler();
+            _handler = new PhotoHandler();          
         }
 
         [TestMethod]
@@ -59,16 +59,18 @@ namespace UnitTestProject
             var byteArray = File.ReadAllBytes(pathToFile);
             var ms = new MemoryStream(byteArray);
 
-            var image =  Image.FromStream(ms);
+            var image = Image.FromStream(ms);
 
-            image.Save(path+testPhoto.ActualSizeName, ImageFormat.Jpeg);
-            image.Save(path+testPhoto.MediumSizeName, ImageFormat.Jpeg);
-            image.Save(path+testPhoto.SmallSizeName, ImageFormat.Jpeg);
+            image.Save(path + testPhoto.ActualSizeName, ImageFormat.Jpeg);
+            image.Save(path + testPhoto.MediumSizeName, ImageFormat.Jpeg);
+            image.Save(path + testPhoto.SmallSizeName, ImageFormat.Jpeg);
 
             var result = _handler.ReceivePhoto(httpPostedFile, testPhoto, path);
 
             Assert.IsTrue(result);
         }
+
+      
 
     }
     class MemoryFile : HttpPostedFileBase

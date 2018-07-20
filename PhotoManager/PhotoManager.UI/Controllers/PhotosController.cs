@@ -8,6 +8,8 @@ using PhotoManager.UI.Models;
 using System.Linq;
 using Microsoft.AspNet.Identity;
 using AutoMapper;
+using System;
+using System.Net;
 
 namespace PhotoManager.UI.Controllers
 {
